@@ -104,17 +104,18 @@
       ]
     },
     {
-      id: 'yavro', name: 'Yavro', letter: 'Y', color: '#B58A12', bg: '#FFF4D4',
+      id: 'cart', name: 'Cart recovery', short: 'Cart recovery', color: '#B58A12', bg: '#FFF4D4',
+      icon: '<svg viewBox="0 0 24 24" width="55%" height="55%" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h2.6l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.6a1.6 1.6 0 0 0 1.6-1.2l1.6-6.8H6.3"/></svg>',
       meta: ['Web', 'SaaS'], status: 'build',
       tagline: 'Win back the revenue abandoned carts leave behind.',
-      desc: 'AI cart recovery for eCommerce stores. Yavro finds abandoned checkouts and sends each shopper a message written for them.',
+      desc: 'An eCommerce cart recovery tool. It finds abandoned checkouts and sends each shopper a recovery message written for them.',
       points: ['Detects abandoned carts in real time', 'Personalised AI recovery across email, SMS and on-site', 'Recovery funnel, campaigns and customer segments', 'Recovered-revenue dashboard with AI insights'],
-      link: { href: 'mailto:hello@brightvane.org?subject=Yavro%20early%20access', label: 'Ask for early access' },
+      link: { href: '#contact', label: 'Ask for early access', local: true },
       slides: [
-        { type: 'browser', src: A + 'yavro/dashboard.webp', url: 'yavro · dashboard', label: 'Dashboard', noPan: true },
-        { type: 'browser', src: A + 'yavro/analytics.webp', url: 'yavro · analytics', label: 'Recovery analytics', noPan: true },
-        { type: 'browser', src: A + 'yavro/campaigns.webp', url: 'yavro · campaigns', label: 'Recovery campaigns', noPan: true },
-        { type: 'browser', src: A + 'yavro/customers.webp', url: 'yavro · customers', label: 'Customer segments', noPan: true }
+        { type: 'browser', src: A + 'cart/dashboard.webp', url: 'cart recovery · dashboard', label: 'Dashboard', noPan: true },
+        { type: 'browser', src: A + 'cart/analytics.webp', url: 'cart recovery · analytics', label: 'Recovery analytics', noPan: true },
+        { type: 'browser', src: A + 'cart/campaigns.webp', url: 'cart recovery · campaigns', label: 'Recovery campaigns', noPan: true },
+        { type: 'browser', src: A + 'cart/customers.webp', url: 'cart recovery · customers', label: 'Customer segments', noPan: true }
       ]
     }
   ];
@@ -218,30 +219,7 @@
     if (!reduceMotion) setInterval(shuffle, interval);
   }
   buildCells($('#planGrid'), 21, ['l1', 'l2'], 1800, 9);
-  buildCells($('#heat'), 28, ['g1', 'g2'], 1500, 12);
 
-
-  /* ---------- Ticketing visuals ---------- */
-  function fillQR(q) {
-    if (!q.children.length) for (var i = 0; i < 49; i++) q.appendChild(el('i'));
-    var cells = q.children;
-    for (var j = 0; j < 49; j++) {
-      var r = Math.floor(j / 7), c = j % 7, finder = (r < 2 && c < 2) || (r < 2 && c > 4) || (r > 4 && c < 2);
-      cells[j].className = finder || Math.random() < .48 ? 'on' : '';
-    }
-  }
-  function tickQRs() { $$('.tk-qr').forEach(fillQR); }
-  tickQRs();
-  if (!reduceMotion) setInterval(tickQRs, 2200);
-  var ring = $('#tkRing');
-  if (ring) {
-    var h = '';
-    for (var k = 0; k < 36; k++) {
-      var a = (k / 36) * Math.PI * 2, rr = k % 2;
-      h += '<circle cx="' + (100 + Math.cos(a) * (52 + rr * 10)).toFixed(1) + '" cy="' + (70 + Math.sin(a) * (40 + rr * 8)).toFixed(1) + '" r="3.4" style="animation-delay:' + (k * .09).toFixed(2) + 's"/>';
-    }
-    ring.innerHTML = h;
-  }
 
   /* ---------- Hero tilt ---------- */
   var art = $('.hero__art');
@@ -364,7 +342,6 @@
         scThumbs.appendChild(t);
       });
       $$('.f-compare', scFrame).forEach(initCompare);
-      $$('.tk-qr', scFrame).forEach(fillQR);
       $('#scPrev').style.visibility = $('#scNext').style.visibility = p.slides.length > 1 ? '' : 'hidden';
       cur.i = -1;
     }
@@ -486,8 +463,8 @@
   window.addEventListener('hashchange', fromHash);
 
   /* ---------- Screenshot wall ---------- */
-  var wallA = [A + 'grovana/home.webp', A + 'talora/store-1.webp', A + 'ticketing/w01-home.webp', A + 'revive/app-4.webp', A + 'propclips/home.webp', A + 'yavro/dashboard.webp', A + 'talora/store-3.webp', A + 'recipia/home.webp', A + 'ticketing/c20-ticket.webp', A + 'propclips/drone-villa.webp', A + 'grovana/pricing.webp'];
-  var wallB = [A + 'ticketing/a02-onsale.webp', A + 'revive/app-2.webp', A + 'recipia/nutrition.webp', A + 'talora/store-6.webp', A + 'yavro/analytics.webp', A + 'propclips/ai-twin.webp', A + 'ticketing/c12-view.webp', A + 'propclips/pricing.webp', A + 'talora/store-7.webp', A + 'recipia/cook-mode.webp', A + 'revive/story-5.webp'];
+  var wallA = [A + 'grovana/home.webp', A + 'talora/store-1.webp', A + 'ticketing/w01-home.webp', A + 'revive/app-4.webp', A + 'propclips/home.webp', A + 'cart/dashboard.webp', A + 'talora/store-3.webp', A + 'recipia/home.webp', A + 'ticketing/c20-ticket.webp', A + 'propclips/drone-villa.webp', A + 'grovana/pricing.webp'];
+  var wallB = [A + 'ticketing/a02-onsale.webp', A + 'revive/app-2.webp', A + 'recipia/nutrition.webp', A + 'talora/store-6.webp', A + 'cart/analytics.webp', A + 'propclips/ai-twin.webp', A + 'ticketing/c12-view.webp', A + 'propclips/pricing.webp', A + 'talora/store-7.webp', A + 'recipia/cook-mode.webp', A + 'revive/story-5.webp'];
   function fillWall(host, list) {
     list.concat(list).forEach(function (src) { var i = el('img'); i.src = src; i.alt = ''; i.loading = 'lazy'; i.decoding = 'async'; host.appendChild(i); });
   }
@@ -519,25 +496,58 @@
   if (reduceMotion) words.forEach(function (w) { w.classList.add('is-lit'); });
   else { window.addEventListener('scroll', lightWords, { passive: true }); lightWords(); }
 
-  /* ---------- Career timeline progress ---------- */
-  var tline = $('#timeline');
-  if (tline) {
-    var tItems = $$('.tl', tline);
-    var tlTick = function () {
-      var r = tline.getBoundingClientRect(), vh = window.innerHeight;
-      var p = Math.max(0, Math.min(1, (vh * 0.6 - r.top) / r.height));
-      tline.style.setProperty('--p', p.toFixed(3));
-      tItems.forEach(function (it) { it.classList.toggle('is-passed', it.getBoundingClientRect().top < vh * 0.6); });
-    };
-    if (reduceMotion) { tline.style.setProperty('--p', 1); tItems.forEach(function (it) { it.classList.add('is-passed'); }); }
-    else { window.addEventListener('scroll', tlTick, { passive: true }); window.addEventListener('resize', tlTick); tlTick(); }
-  }
-
   /* ---------- Approach steps hover ---------- */
   $$('.step').forEach(function (s) {
     s.addEventListener('mouseenter', function () { $$('.step').forEach(function (x) { x.classList.toggle('is-active', x === s); }); });
   });
   $('#steps').addEventListener('mouseleave', function () { $$('.step').forEach(function (x) { x.classList.remove('is-active'); }); });
+
+  /* ---------- PropClips reel plays on hover ---------- */
+  $$('.sh-reel').forEach(function (r) {
+    var v = $('video', r), card = r.closest('.pcard');
+    if (!v || !card || reduceMotion) return;
+    card.addEventListener('mouseenter', function () { var p = v.play(); if (p && p.then) p.then(function () { r.classList.add('is-playing'); }).catch(function () {}); });
+    card.addEventListener('mouseleave', function () { v.pause(); r.classList.remove('is-playing'); });
+  });
+
+  /* ---------- Contact form (FormSubmit → hello@brightvane.org) ---------- */
+  var cf = $('#contactForm');
+  if (cf) {
+    var cfStatus = $('#cfStatus'), cfBtn = $('.cform__send', cf), cfLabel = cfBtn.innerHTML;
+    // "Ask for early access" style links pre-select the matching topic
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href="#contact"]');
+      if (!a) return;
+      var want = /early access/i.test(a.textContent) ? 'Early access' : (a.closest('#scInfo') ? 'One of our products' : null);
+      if (want) { var r = $('input[name="topic"][value="' + want + '"]', cf); if (r) r.checked = true; }
+    });
+    cf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!cf.checkValidity()) { cf.classList.add('was-tried'); var bad = $(':invalid', cf); if (bad) bad.focus(); cfStatus.textContent = 'Please fill in your name, a valid email and a message.'; return; }
+      if (cf.elements._honey.value) return;
+      var data = {};
+      new FormData(cf).forEach(function (v, k) { data[k] = v; });
+      cfBtn.disabled = true; cfBtn.innerHTML = 'Sending…'; cfStatus.textContent = '';
+      fetch('https://formsubmit.co/ajax/hello@brightvane.org', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok || j.success === false || j.success === 'false') throw new Error(j.message || 'Send failed');
+        });
+      }).then(function () {
+        cf.reset(); cf.classList.remove('was-tried'); cf.classList.add('is-sent');
+        cfBtn.innerHTML = 'Sent ✓';
+        cfStatus.textContent = "Thanks, we've got your message and will reply soon.";
+        setTimeout(function () { cf.classList.remove('is-sent'); cfBtn.innerHTML = cfLabel; cfBtn.disabled = false; }, 6000);
+      }).catch(function () {
+        cfBtn.disabled = false; cfBtn.innerHTML = cfLabel;
+        var body = encodeURIComponent((data.message || '') + '\n\n' + (data.name || ''));
+        cfStatus.innerHTML = 'That didn’t go through. Please email <a href="mailto:hello@brightvane.org?subject=' + encodeURIComponent(data.topic || 'Hello') + '&body=' + body + '">hello@brightvane.org</a> instead.';
+      });
+    });
+  }
 
   $('#year').textContent = new Date().getFullYear();
 })();
